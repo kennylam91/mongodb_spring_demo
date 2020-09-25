@@ -7,5 +7,8 @@ import lombok.Setter;
 @Setter
 public class WriterForm extends BaseForm{
 
+	private String writerName;
+	
+	private String country;
 
 }

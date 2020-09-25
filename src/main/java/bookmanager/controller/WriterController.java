@@ -47,7 +47,8 @@ public class WriterController {
 	public ResponseEntity<Page<Writer>> findAll(@RequestBody WriterForm writerForm) {
 		Pageable pageable = PageRequest.of(writerForm.getPage() - 1, writerForm.getLimit(),
 				Sort.by(Sort.Direction.ASC, "writerName"));
-		Page<Writer> writerPage = writerRepository.findAll(pageable);
+		Page<Writer> writerPage = writerRepository.findByWriterNameContainingAndCountry(writerForm.getWriterName(),
+				writerForm.getCountry(), pageable);
 		return ResponseEntity.ok(writerPage);
 	}
 
