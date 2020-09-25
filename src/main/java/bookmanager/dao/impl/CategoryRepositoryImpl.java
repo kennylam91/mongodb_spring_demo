@@ -17,12 +17,13 @@ public class CategoryRepositoryImpl implements CategoryRepository {
 
 	@Override
 	public Category saveOrUpdate(Category category) {
-		return mongoTemplate.save(category, "category");
+		return mongoTemplate.save(category, "categories");
 	}
 
 	@Override
 	public List<Category> findAll() {
-		return mongoTemplate.findAll(Category.class);
+		List<Category> list = mongoTemplate.findAll(Category.class);
+		return list;
 	}
 	
 	

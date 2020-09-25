@@ -9,7 +9,7 @@ import lombok.Data;
 @Data
 public class BookDetailDto {
 
-	private String bookId;
+	private Long bookId;
 	
 	private String title;
 	

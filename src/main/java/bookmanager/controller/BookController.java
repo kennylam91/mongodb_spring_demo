@@ -19,6 +19,7 @@ import bookmanager.form.BookForm;
 import bookmanager.form.WriterForm;
 import bookmanager.model.Book;
 import bookmanager.model.Writer;
+import bookmanager.service.SequenceGeneratorService;
 
 @RestController
 @RequestMapping("/books")
@@ -27,9 +28,18 @@ public class BookController {
 	@Autowired
 	private BookRepository bookRepository;
 	
+	@Autowired
+	private SequenceGeneratorService sequenceGeneratorService;
+
+	
 	@PostMapping
 	public ResponseEntity<List<Book>> createOrUpdate(@RequestBody List<Book> books){
 		try {
+			for (Book book : books) {
+				if(book.getBookId() == null) {
+					book.setBookId(sequenceGeneratorService.generateSequence(Book.SEQUENCE_NAME));
+				}
+			}
 			return ResponseEntity.ok(bookRepository.saveAll(books));
 		} catch (Exception e) {
 			return ResponseEntity.badRequest().body(null);

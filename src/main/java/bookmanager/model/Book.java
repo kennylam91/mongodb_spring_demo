@@ -17,7 +17,6 @@ public class Book{
 	public static final String SEQUENCE_NAME = "book_sequence";
 	
 	@Id
-	@Field("book_id")
 	private Long bookId;
 	
 	private String title;
@@ -26,7 +25,7 @@ public class Book{
 	private Integer noOfPages;
 	
 	@Field("writer_id")
-	private String writerId;
+	private Long writerId;
 	
 	private String[] categories;
 	

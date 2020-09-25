@@ -15,7 +15,6 @@ public class Category {
 	public static final String SEQUENCE_NAME = "category_sequence";
 
 	@Id
-	@Field("category_id")
 	private Long categoryId;
 
 	@Field("category_name")

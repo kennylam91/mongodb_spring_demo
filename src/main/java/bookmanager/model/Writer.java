@@ -17,7 +17,6 @@ public class Writer {
 	public static final String SEQUENCE_NAME = "writer_sequence";
 	
 	@Id
-	@Field("writer_id")
 	private Long writerId;
 	
 	@Field("writer_name")

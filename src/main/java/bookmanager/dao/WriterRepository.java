@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import bookmanager.model.Writer;
 
 @Repository
-public interface WriterRepository extends MongoRepository<Writer, String>{
+public interface WriterRepository extends MongoRepository<Writer, Long>{
 	
 }
